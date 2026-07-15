@@ -3,11 +3,11 @@ import { manifesto } from "@/lib/content";
 
 export default function Manifesto() {
   return (
-    <section className="bg-surface px-6 py-28 md:px-12 md:py-36">
-      <div className="mx-auto grid max-w-[1400px] gap-14 md:grid-cols-[300px_1fr] md:gap-28">
+    <section className="bg-paper px-6 py-28 md:px-12 md:py-40">
+      <div className="mx-auto grid max-w-[1440px] gap-14 md:grid-cols-[300px_1fr] md:gap-32">
         <Reveal>
           <span className="kicker">{manifesto.label}</span>
-          <p className="mt-6 text-sm leading-8 text-muted">{manifesto.aside}</p>
+          <p className="mt-6 text-sm leading-8 text-mute">{manifesto.aside}</p>
         </Reveal>
 
         <div>
@@ -15,15 +15,12 @@ export default function Manifesto() {
             <Reveal
               key={i}
               delay={((i + 1) as 1 | 2 | 3)}
-              className="mb-6 font-display text-[clamp(1.5rem,2.6vw,2.3rem)] font-light leading-[1.42] text-cream last:mb-0"
+              className="mb-7 font-display text-[clamp(1.7rem,3.2vw,2.8rem)] font-light leading-[1.35] text-ink last:mb-0"
             >
               {line}
             </Reveal>
           ))}
-          <Reveal
-            delay={4}
-            className="mt-8 text-[0.82rem] italic tracking-wide text-muted"
-          >
+          <Reveal delay={4} className="mt-9 text-[0.82rem] italic tracking-wide text-mute">
             {manifesto.note}
           </Reveal>
         </div>

@@ -12,33 +12,18 @@ import Booking from "@/components/Booking";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-function Hairline() {
-  return (
-    <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-      <div className="hairline" />
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
       <Nav />
       <main>
         <Hero />
-        <Hairline />
         <Manifesto />
-        <Hairline />
         <Pillars />
-        <Hairline />
         <Services />
-        <Hairline />
         <Shan />
-        <Hairline />
         <Availability />
-        <Hairline />
         <Work />
-        <Hairline />
         <Testimonials />
         <Tourist />
         <Booking />

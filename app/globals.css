@@ -1,31 +1,34 @@
 @import "tailwindcss";
 
 /* ============================================================
-   NOVA STYLE LOUNGE  ·  Design tokens
-   Warm, low-light lounge palette. Gold is used sparingly as an
-   accent, never as fill. The base is near-black espresso so the
-   photography and type carry the luxury.
+   NOVA STYLE LOUNGE  ·  Editorial design tokens
+   Split system: cinematic night bands (hero, Shan, footer)
+   opening into a warm paper editorial body. One cognac accent.
    ============================================================ */
 @theme {
-  --color-bg: #0a0704;
-  --color-surface: #100c07;
-  --color-card: #17120b;
-  --color-card-2: #1f1810;
-  --color-line: rgba(190, 154, 88, 0.14);
-  --color-line-strong: rgba(190, 154, 88, 0.32);
-  --color-cream: #f2ece0;
+  /* light body */
+  --color-paper: #f4eee2;
+  --color-paper-2: #ebe3d1;
+  --color-ink: #1b1610;
+  --color-ink-soft: #56503f;
+  --color-mute: #85795f;
+  --color-line: rgba(27, 22, 16, 0.14);
+  --color-line-strong: rgba(27, 22, 16, 0.32);
+  --color-accent: #a05a1f;
+
+  /* dark bands */
+  --color-night: #100d09;
+  --color-night-2: #191510;
+  --color-cream: #f2ecdd;
   --color-warm: #cbb089;
   --color-gold: #c9a552;
-  --color-gold-soft: #e0c176;
-  --color-muted: #8a795f;
-  --color-faint: #453a29;
+  --color-line-dark: rgba(201, 165, 82, 0.16);
+  --color-line-dark-strong: rgba(201, 165, 82, 0.34);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --shadow-lift: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
 }
 
 /* ---------- Base ---------- */
@@ -51,8 +54,8 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-cream);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-weight: 300;
   line-height: 1.7;
@@ -61,20 +64,20 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Fine film grain, extremely subtle, sits above everything but ignores pointer */
+/* Paper grain, extremely subtle */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: rgba(201, 165, 82, 0.28);
-  color: var(--color-cream);
+  background: rgba(160, 90, 31, 0.22);
+  color: var(--color-ink);
 }
 
 /* ---------- Type helpers ---------- */
@@ -84,15 +87,7 @@ body::after {
   letter-spacing: 0;
 }
 
-.eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-gold);
-}
-
-/* Kicker with a drawn rule, editorial section label */
+/* Editorial section label with drawn rule. Inherit color per band. */
 .kicker {
   display: inline-flex;
   align-items: center;
@@ -101,14 +96,17 @@ body::after {
   letter-spacing: 0.34em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-gold);
+  color: var(--color-accent);
 }
 .kicker::before {
   content: "";
   width: 2.2rem;
   height: 1px;
   background: currentColor;
-  opacity: 0.6;
+  opacity: 0.7;
+}
+.kicker-dark {
+  color: var(--color-gold);
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -124,20 +122,12 @@ body::after {
   opacity: 1;
   transform: none;
 }
-.reveal-delay-1 {
-  transition-delay: 0.08s;
-}
-.reveal-delay-2 {
-  transition-delay: 0.16s;
-}
-.reveal-delay-3 {
-  transition-delay: 0.24s;
-}
-.reveal-delay-4 {
-  transition-delay: 0.32s;
-}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
 
-/* Word-by-word headline mask reveal */
+/* Headline mask reveal */
 .line-mask {
   display: block;
   overflow: hidden;
@@ -151,14 +141,41 @@ body::after {
   transform: none;
 }
 
-/* ---------- Links & focus ---------- */
-a {
-  color: inherit;
-  text-decoration: none;
+/* ---------- Marquee ---------- */
+.marquee {
+  overflow: hidden;
+  user-select: none;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
+/* ---------- Horizontal gallery ---------- */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Links & focus ----------
+   Note: anchor color/decoration inheritance comes from Tailwind preflight.
+   Do not add an unlayered `a { color: ... }` rule here; unlayered CSS
+   outranks @layer utilities and silently disables text-* classes on links. */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -169,26 +186,14 @@ a {
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-bg);
+    background: var(--color-paper);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-faint);
+    background: rgba(27, 22, 16, 0.25);
     border-radius: 999px;
-    border: 3px solid var(--color-bg);
+    border: 3px solid var(--color-paper);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-muted);
+    background: rgba(27, 22, 16, 0.45);
   }
-}
-
-/* Hairline divider used between sections */
-.hairline {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--color-line-strong),
-    transparent
-  );
 }

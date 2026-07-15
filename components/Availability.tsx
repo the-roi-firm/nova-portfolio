@@ -4,40 +4,48 @@ import { availability } from "@/lib/content";
 
 export default function Availability() {
   return (
-    <section id="availability" className="bg-surface px-6 py-28 md:px-12 md:py-36">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="availability" className="border-t border-line bg-paper px-6 py-28 md:px-12 md:py-36">
+      <div className="mx-auto max-w-[1440px]">
         <SectionHeading
           kicker={availability.label}
           title={availability.title}
           em={availability.titleEm}
         />
 
-        <div className="mt-14 grid gap-px overflow-hidden border border-line md:grid-cols-2">
+        <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-0">
           {availability.cards.map((card, i) => (
             <Reveal
               key={card.tag}
               delay={((i + 1) as 1 | 2)}
-              className="relative overflow-hidden bg-card p-11 md:p-14"
+              className={`border-t border-line-strong pt-9 md:pr-14 ${
+                i === 1 ? "md:border-l md:border-t md:pl-14" : ""
+              }`}
             >
-              <span className="absolute right-9 top-8 font-display text-[3.4rem] font-light leading-none text-gold/10">
-                {card.slots}
-              </span>
-              <p className="mb-6 text-[0.66rem] font-medium uppercase tracking-[0.3em] text-gold">
-                {card.tag}
-              </p>
-              <h3 className="mb-4 font-display text-[2.4rem] leading-tight text-cream">
+              <div className="flex items-baseline justify-between gap-6">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.3em] text-accent">
+                  {card.tag}
+                </p>
+                <span className="font-display text-xl italic text-mute/70">
+                  {card.slots} slots
+                </span>
+              </div>
+              <h3 className="mt-7 font-display text-[clamp(2.2rem,4vw,3.4rem)] leading-[1.05] text-ink">
                 {card.days}
               </h3>
-              <p className="mb-6 font-display text-xl italic text-warm">{card.time}</p>
-              <p className="max-w-sm text-[0.85rem] leading-8 text-muted">
+              <p className="mt-3 font-display text-[1.5rem] italic text-accent">
+                {card.time}
+              </p>
+              <p className="mt-6 max-w-md text-[0.88rem] leading-8 text-mute">
                 {card.location}
               </p>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-10 border-l-2 border-gold bg-gold/6 px-10 py-9 font-display text-[1.2rem] italic leading-relaxed text-warm">
-          {availability.note}
+        <Reveal className="mt-16 max-w-3xl">
+          <p className="border-l-2 border-accent pl-8 font-display text-[1.35rem] italic leading-relaxed text-ink-soft">
+            {availability.note}
+          </p>
         </Reveal>
       </div>
     </section>
