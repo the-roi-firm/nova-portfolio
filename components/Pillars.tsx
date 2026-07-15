@@ -21,7 +21,7 @@ export default function Pillars() {
               <h3 className="mb-4 mt-6 font-display text-[1.7rem] leading-tight text-ink">
                 {p.title}
               </h3>
-              <p className="max-w-sm text-[0.9rem] leading-8 text-mute">{p.text}</p>
+              <p className="copy max-w-sm">{p.text}</p>
             </Reveal>
           ))}
         </div>

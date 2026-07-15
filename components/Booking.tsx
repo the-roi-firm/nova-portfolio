@@ -8,10 +8,10 @@ type Status = "idle" | "sending" | "success" | "error";
 
 /* Editorial underline fields: no boxes, just a drawn baseline. */
 const fieldClass =
-  "w-full border-0 border-b border-line-strong bg-transparent px-0 py-3 text-[1rem] font-light text-ink outline-none transition-colors duration-300 placeholder:text-mute/60 focus:border-accent";
+  "w-full border-0 border-b border-line-strong bg-transparent px-0 py-3 text-[1.05rem] font-normal text-ink outline-none transition-colors duration-300 placeholder:text-mute/80 focus:border-accent";
 
 const labelClass =
-  "mb-1 block text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-mute";
+  "mb-1.5 block text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-mute";
 
 export default function Booking() {
   const [status, setStatus] = useState<Status>("idle");
@@ -60,9 +60,7 @@ export default function Booking() {
             <h2 className="mt-6 font-display text-[clamp(2.3rem,4.5vw,3.8rem)] leading-[1.05] text-ink">
               {booking.title} <em className="italic text-accent">{booking.titleEm}</em>
             </h2>
-            <p className="mt-6 max-w-md text-[0.9rem] leading-8 text-mute">
-              {booking.sub}
-            </p>
+            <p className="copy mt-6 max-w-md">{booking.sub}</p>
 
             <div className="mt-11 space-y-0">
               {booking.details.map((d, i) => (
@@ -71,8 +69,8 @@ export default function Booking() {
                   className="flex items-start gap-4 border-t border-line py-4 last:border-b"
                 >
                   <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" />
-                  <p className="text-[0.85rem] leading-7 text-mute">
-                    <strong className="font-medium text-ink">{d.strong}</strong>
+                  <p className="text-[1rem] leading-7 text-ink-soft">
+                    <strong className="font-semibold text-ink">{d.strong}</strong>
                     {d.rest}
                   </p>
                 </div>
@@ -103,14 +101,14 @@ export default function Booking() {
                 href={contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-9 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-accent"
+                className="mt-9 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-accent"
               >
                 Or message on WhatsApp now &rarr;
               </a>
             </div>
           ) : (
             <>
-              <p className="mb-10 text-[0.72rem] tracking-wide text-mute">
+              <p className="mb-10 text-[0.85rem] tracking-wide text-mute">
                 All fields marked with an asterisk are required.
               </p>
               <form onSubmit={handleSubmit} noValidate>
@@ -238,7 +236,7 @@ export default function Booking() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="mt-10 w-full bg-ink py-[1.1rem] text-[0.72rem] font-semibold uppercase tracking-[0.25em] text-paper transition-colors duration-300 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60 md:w-auto md:px-14"
+                  className="mt-10 w-full bg-ink py-[1.1rem] text-[0.8rem] font-semibold uppercase tracking-[0.2em] text-paper transition-colors duration-300 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60 md:w-auto md:px-14"
                 >
                   {status === "sending" ? "Sending..." : "Send my request"}
                 </button>
@@ -258,7 +256,7 @@ export default function Booking() {
                   </p>
                 )}
 
-                <p className="mt-6 max-w-md text-[0.75rem] italic leading-6 text-mute">
+                <p className="mt-6 max-w-md text-[0.88rem] italic leading-6 text-mute">
                   {booking.formNote}
                 </p>
               </form>

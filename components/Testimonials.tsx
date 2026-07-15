@@ -28,7 +28,7 @@ export default function Testimonials() {
               <p className="mt-2 font-display text-[clamp(1.4rem,2.2vw,1.8rem)] font-light italic leading-[1.5] text-ink">
                 {q.text}
               </p>
-              <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-mute">
+              <p className="mt-6 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-mute">
                 {q.attr} <span className="text-accent">· {q.via}</span>
               </p>
             </Reveal>

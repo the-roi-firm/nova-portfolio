@@ -63,7 +63,7 @@ export default function Nav() {
             <a
               key={item.href}
               href={item.href}
-              className={`group relative text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${linkTone}`}
+              className={`group relative text-[0.8rem] font-medium uppercase tracking-[0.16em] transition-colors duration-300 ${linkTone}`}
             >
               {item.label}
               <span
@@ -73,7 +73,7 @@ export default function Nav() {
           ))}
           <a
             href="#booking"
-            className={`px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ${
+            className={`px-6 py-3 text-[0.8rem] font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${
               onLight
                 ? "bg-ink text-paper hover:bg-accent"
                 : "bg-cream text-night hover:bg-gold"
@@ -132,7 +132,7 @@ export default function Nav() {
         <a
           href="#booking"
           onClick={() => setOpen(false)}
-          className="mt-5 bg-cream px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-night"
+          className="mt-5 bg-cream px-9 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-night"
           style={{
             transform: open ? "translateY(0)" : "translateY(24px)",
             opacity: open ? 1 : 0,

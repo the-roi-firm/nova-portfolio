@@ -16,7 +16,7 @@ function TickerRun() {
     <span className="flex shrink-0 items-center">
       {ticker.map((t) => (
         <span key={t} className="flex items-center">
-          <span className="px-7 text-[0.68rem] uppercase tracking-[0.3em] text-cream/55">
+          <span className="px-7 text-[0.8rem] uppercase tracking-[0.28em] text-cream/75">
             {t}
           </span>
           <span className="h-1 w-1 rotate-45 bg-gold/60" aria-hidden="true" />
@@ -78,7 +78,7 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-16 md:px-12 md:pb-20">
         <p
-          className="mb-7 text-[0.68rem] font-medium uppercase tracking-[0.34em] text-gold transition-all duration-1000"
+          className="mb-7 text-[0.82rem] font-semibold uppercase tracking-[0.28em] text-gold transition-all duration-1000"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "none" : "translateY(14px)",
@@ -107,7 +107,7 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col gap-9 md:flex-row md:items-end md:justify-between">
           <p
-            className="max-w-md text-[0.95rem] leading-8 text-cream/60 transition-all duration-1000"
+            className="max-w-lg text-[1.15rem] leading-[1.75] text-cream/85 transition-all duration-1000"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? "none" : "translateY(14px)",
@@ -127,13 +127,13 @@ export default function Hero() {
           >
             <a
               href="#booking"
-              className="bg-cream px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-night transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold"
+              className="bg-cream px-9 py-4.5 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-night transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold"
             >
               {hero.primaryCta}
             </a>
             <a
               href="#shan"
-              className="border border-line-dark-strong px-9 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-warm transition-all duration-300 hover:border-gold hover:bg-gold/10"
+              className="border border-line-dark-strong px-9 py-4.5 text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-warm transition-all duration-300 hover:border-gold hover:bg-gold/10"
             >
               {hero.secondaryCta}
             </a>

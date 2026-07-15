@@ -2,28 +2,31 @@
 
 /* ============================================================
    NOVA STYLE LOUNGE  ·  Editorial design tokens
-   Split system: cinematic night bands (hero, Shan, footer)
-   opening into a warm paper editorial body. One cognac accent.
+   Split system: cinematic night bands opening into a warm paper
+   editorial body. One cognac accent. Tuned for legibility and a
+   clean, Apple-grade type feel.
    ============================================================ */
 @theme {
   /* light body */
   --color-paper: #f4eee2;
-  --color-paper-2: #ebe3d1;
-  --color-ink: #1b1610;
-  --color-ink-soft: #56503f;
-  --color-mute: #85795f;
-  --color-line: rgba(27, 22, 16, 0.14);
-  --color-line-strong: rgba(27, 22, 16, 0.32);
-  --color-accent: #a05a1f;
+  --color-paper-2: #ebe2cf;
+  --color-ink: #171208;
+  --color-ink-soft: #3f382b;
+  --color-mute: #5c5240;
+  --color-line: rgba(23, 18, 8, 0.16);
+  --color-line-strong: rgba(23, 18, 8, 0.34);
+  --color-accent: #965117;
+  --color-accent-deep: #7c4212;
 
   /* dark bands */
-  --color-night: #100d09;
+  --color-night: #0f0c08;
   --color-night-2: #191510;
-  --color-cream: #f2ecdd;
-  --color-warm: #cbb089;
-  --color-gold: #c9a552;
-  --color-line-dark: rgba(201, 165, 82, 0.16);
-  --color-line-dark-strong: rgba(201, 165, 82, 0.34);
+  --color-cream: #f6f0e3;
+  --color-cream-soft: #d8cdb6;
+  --color-warm: #d3b98f;
+  --color-gold: #d1ac57;
+  --color-line-dark: rgba(209, 172, 87, 0.18);
+  --color-line-dark-strong: rgba(209, 172, 87, 0.36);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
@@ -37,29 +40,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Apple-grade body: comfortable size, real weight (not hairline),
+   tight tracking. 17px base, generous line-height. */
 html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
-  }
+  font-size: 17px;
 }
 
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-weight: 300;
-  line-height: 1.7;
-  letter-spacing: -0.005em;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }
@@ -71,12 +64,12 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.028;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: rgba(160, 90, 31, 0.22);
+  background: rgba(150, 81, 23, 0.22);
   color: var(--color-ink);
 }
 
@@ -87,15 +80,22 @@ body::after {
   letter-spacing: 0;
 }
 
-/* Editorial section label with drawn rule. Inherit color per band. */
+/* Display headlines get slightly tighter tracking, Apple style. */
+h1.font-display,
+h2.font-display,
+.font-display.tracking-tight-display {
+  letter-spacing: -0.012em;
+}
+
+/* Editorial section label with drawn rule. */
 .kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  font-size: 0.66rem;
-  letter-spacing: 0.34em;
+  font-size: 0.74rem;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-accent);
 }
 .kicker::before {
@@ -103,19 +103,29 @@ body::after {
   width: 2.2rem;
   height: 1px;
   background: currentColor;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .kicker-dark {
   color: var(--color-gold);
 }
 
+/* Standard editorial body paragraph: readable on paper. */
+.copy {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--color-ink-soft);
+}
+.copy-dark {
+  color: var(--color-cream-soft);
+}
+
 /* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(24px);
   transition:
-    opacity 1s var(--ease-out-soft),
-    transform 1s var(--ease-out-soft);
+    opacity 0.9s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-soft);
   will-change: opacity, transform;
 }
 .reveal.is-in {
@@ -131,6 +141,7 @@ body::after {
 .line-mask {
   display: block;
   overflow: hidden;
+  padding-bottom: 0.08em;
 }
 .line-mask > span {
   display: block;
@@ -149,17 +160,30 @@ body::after {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 @keyframes marquee {
   to {
     transform: translateX(-50%);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
+
+/* ---------- Lenis smooth scroll ----------
+   These are Lenis's required styles. Smooth scroll is enabled
+   unconditionally (including Windows performance mode), so we do NOT
+   gate motion behind prefers-reduced-motion. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 /* ---------- Horizontal gallery ---------- */
@@ -170,10 +194,7 @@ body::after {
   display: none;
 }
 
-/* ---------- Links & focus ----------
-   Note: anchor color/decoration inheritance comes from Tailwind preflight.
-   Do not add an unlayered `a { color: ... }` rule here; unlayered CSS
-   outranks @layer utilities and silently disables text-* classes on links. */
+/* ---------- Focus ---------- */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
@@ -189,11 +210,11 @@ body::after {
     background: var(--color-paper);
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(27, 22, 16, 0.25);
+    background: rgba(23, 18, 8, 0.28);
     border-radius: 999px;
     border: 3px solid var(--color-paper);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(27, 22, 16, 0.45);
+    background: rgba(23, 18, 8, 0.5);
   }
 }

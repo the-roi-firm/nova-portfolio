@@ -19,13 +19,13 @@ export default function Footer() {
         >
           NOVA
         </p>
-        <p className="mt-3 text-[0.66rem] uppercase tracking-[0.4em] text-gold">
+        <p className="mt-3 text-[0.78rem] uppercase tracking-[0.34em] text-gold">
           Style Lounge · Kandy
         </p>
 
         <div className="mt-16 grid gap-12 border-t border-line-dark pt-12 md:grid-cols-3 md:gap-16">
           <div>
-            <p className="max-w-xs text-[0.82rem] italic leading-7 text-cream/50">
+            <p className="max-w-xs text-[0.98rem] italic leading-7 text-cream-soft">
               {footer.tagline.map((l) => (
                 <span key={l} className="block">
                   {l}
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-6 text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-gold">
+            <p className="mb-6 text-[0.74rem] font-semibold uppercase tracking-[0.24em] text-gold">
               Navigate
             </p>
             <div className="flex flex-col gap-3.5">
@@ -43,14 +43,14 @@ export default function Footer() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-[0.85rem] text-cream/55 transition-colors duration-300 hover:text-cream"
+                  className="text-[0.98rem] text-cream-soft transition-colors duration-300 hover:text-cream"
                 >
                   {item.label}
                 </a>
               ))}
               <a
                 href="#booking"
-                className="text-[0.85rem] text-cream/55 transition-colors duration-300 hover:text-cream"
+                className="text-[0.98rem] text-cream-soft transition-colors duration-300 hover:text-cream"
               >
                 Request an appointment
               </a>
@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-6 text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-gold">
+            <p className="mb-6 text-[0.74rem] font-semibold uppercase tracking-[0.24em] text-gold">
               Connect
             </p>
             <div className="flex flex-col gap-3.5">
@@ -68,7 +68,7 @@ export default function Footer() {
                   href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.85rem] text-cream/55 transition-colors duration-300 hover:text-cream"
+                  className="text-[0.98rem] text-cream-soft transition-colors duration-300 hover:text-cream"
                 >
                   {c.label}
                 </a>
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-5 border-t border-line-dark pt-7 md:flex-row md:items-center">
-          <p className="text-[0.72rem] tracking-wide text-cream/35">
+          <p className="text-[0.82rem] tracking-wide text-cream/55">
             &copy; {new Date().getFullYear()} {footer.copyright}
           </p>
           <div className="flex gap-6">
@@ -88,7 +88,7 @@ export default function Footer() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.66rem] uppercase tracking-[0.25em] text-cream/45 transition-colors duration-300 hover:text-gold"
+                className="text-[0.76rem] uppercase tracking-[0.2em] text-cream/65 transition-colors duration-300 hover:text-gold"
               >
                 {c.label}
               </a>

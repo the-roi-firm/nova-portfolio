@@ -22,10 +22,10 @@ export default function Availability() {
               }`}
             >
               <div className="flex items-baseline justify-between gap-6">
-                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.3em] text-accent">
+                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-accent">
                   {card.tag}
                 </p>
-                <span className="font-display text-xl italic text-mute/70">
+                <span className="font-display text-xl italic text-mute">
                   {card.slots} slots
                 </span>
               </div>
@@ -35,15 +35,13 @@ export default function Availability() {
               <p className="mt-3 font-display text-[1.5rem] italic text-accent">
                 {card.time}
               </p>
-              <p className="mt-6 max-w-md text-[0.88rem] leading-8 text-mute">
-                {card.location}
-              </p>
+              <p className="copy mt-6 max-w-md">{card.location}</p>
             </Reveal>
           ))}
         </div>
 
         <Reveal className="mt-16 max-w-3xl">
-          <p className="border-l-2 border-accent pl-8 font-display text-[1.35rem] italic leading-relaxed text-ink-soft">
+          <p className="border-l-2 border-accent pl-8 font-display text-[1.5rem] italic leading-relaxed text-ink">
             {availability.note}
           </p>
         </Reveal>

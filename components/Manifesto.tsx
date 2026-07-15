@@ -7,7 +7,7 @@ export default function Manifesto() {
       <div className="mx-auto grid max-w-[1440px] gap-14 md:grid-cols-[300px_1fr] md:gap-32">
         <Reveal>
           <span className="kicker">{manifesto.label}</span>
-          <p className="mt-6 text-sm leading-8 text-mute">{manifesto.aside}</p>
+          <p className="copy mt-7">{manifesto.aside}</p>
         </Reveal>
 
         <div>
@@ -20,7 +20,7 @@ export default function Manifesto() {
               {line}
             </Reveal>
           ))}
-          <Reveal delay={4} className="mt-9 text-[0.82rem] italic tracking-wide text-mute">
+          <Reveal delay={4} className="mt-9 text-[0.98rem] italic tracking-wide text-mute">
             {manifesto.note}
           </Reveal>
         </div>

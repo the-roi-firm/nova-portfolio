@@ -18,7 +18,7 @@ export default function Shan() {
               "linear-gradient(to right, transparent 62%, rgba(16,13,9,0.6) 100%), linear-gradient(to bottom, rgba(16,13,9,0.25) 0%, transparent 26%, transparent 76%, rgba(16,13,9,0.6) 100%)",
           }}
         />
-        <span className="absolute bottom-8 left-8 text-[0.68rem] uppercase tracking-[0.3em] text-cream/70">
+        <span className="absolute bottom-8 left-8 text-[0.78rem] uppercase tracking-[0.24em] text-cream/85">
           Shan · Founder and Specialist
         </span>
       </div>
@@ -34,7 +34,7 @@ export default function Shan() {
               </span>
             ))}
           </blockquote>
-          <div className="mt-9 space-y-5 text-[0.9rem] leading-8 text-cream/55">
+          <div className="mt-9 space-y-5 text-[1.08rem] leading-[1.72] text-cream-soft">
             {shan.story.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -43,7 +43,7 @@ export default function Shan() {
             href={contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 inline-flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-gold"
+            className="group mt-10 inline-flex items-center gap-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-gold"
           >
             {shan.link}
             <span className="transition-transform duration-300 group-hover:translate-x-1.5">

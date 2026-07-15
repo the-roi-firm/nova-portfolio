@@ -54,9 +54,7 @@ export default function Work() {
             </button>
           </Reveal>
         </div>
-        <Reveal className="mt-5 max-w-md text-[0.88rem] leading-8 text-mute">
-          {work.intro}
-        </Reveal>
+        <Reveal className="copy mt-5 max-w-md">{work.intro}</Reveal>
       </div>
 
       {/* Horizontal strip; padding keeps first card aligned with the grid */}
@@ -85,10 +83,10 @@ export default function Work() {
               <span className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-line" />
             </div>
             <figcaption className="flex items-baseline justify-between py-4">
-              <span className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-accent">
+              <span className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-accent">
                 {item.label}
               </span>
-              <span className="font-display text-lg italic text-ink-soft">{item.name}</span>
+              <span className="font-display text-xl italic text-ink">{item.name}</span>
             </figcaption>
           </figure>
         ))}
@@ -101,7 +99,7 @@ export default function Work() {
           href={contact.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-accent"
+          className="group inline-flex items-center gap-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-accent"
         >
           {work.cta}
           <span className="transition-transform duration-300 group-hover:translate-x-1.5">

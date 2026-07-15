@@ -1,3 +1,4 @@
+import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Manifesto from "@/components/Manifesto";
@@ -15,6 +16,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 export default function Home() {
   return (
     <>
+      <SmoothScroll />
       <Nav />
       <main>
         <Hero />
