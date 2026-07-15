@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block access to any future admin or config paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.netlify/
+Disallow: /netlify.toml
+Disallow: /_headers
+
+# Sitemap location
+Sitemap: https://novastyleloungekandy.com/sitemap.xml
+
+# Crawl delay (be polite to crawlers)
+Crawl-delay: 10
